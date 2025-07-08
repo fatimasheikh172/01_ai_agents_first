@@ -1,0 +1,51 @@
+1. Swarm Framework – Kya Hai?
+
+"Swarm ek experimental framework hai jo OpenAI ne banaya hai. Iska basic goal yeh hai ke aise multi-agent systems banaye jaayen jo":
+
+* Asaani se manage ho sakein (lightweight aur ergonomic),
+* Har agent apna kaam khud kare,
+* Aur agar zarurat ho to ek agent doosray ko kaam handover kar de.
+
+2. Do Core Abstractions: Agents aur Handoffs:-
+
+ A. Agents – Har Agent Specialist Hai:
+
+    "Agent" ek AI program hota hai jo:
+
+.) kisi ek specific task ko perform karta hai,
+
+.) Apni instructions aur tools ke saath kaam karta hai,
+
+.) Apne kaam mein specialist hota hai.
+
+ B. Handoffs – Control Transfer Karna:
+
+  "Handoff" ka matlab hai:
+
+.) Ek agent doosray agent ko kaam aur context transfer karta hai.
+
+.) Yeh tab hota hai jab:
+
+.) Pehla agent kisi query ko solve nahi kar sakta,
+
+.) Ya samajhta hai ke doosra agent zyada behtar jawab de sakta hai.
+
+3. Swarm → Agents SDK – Agla Step:
+
+"Swarm ke successful experimental design ke baad, OpenAI ne Agents SDK launch kiya hai. Yeh:"
+
+Production-ready hai (real apps mein use ho sakta hai),
+Swarm ke hi principles par based hai,
+Aur zyada powerful aur refined features deta hai.
+
+..Iska matlab:
+
+Jo concepts humne Swarm mein seekhe (agents + handoffs),
+Ab wohhi zyaada mature aur robust form mein Agents SDK mein miltay hain.
+
+Summary Example:
+
+Swarm: Prototype bananay ka tool tha – chhoti cheezon ke liye, jaldi test karne ke liye.
+Agents SDK: Us prototype ka production version hai – ready for real apps!
+
+

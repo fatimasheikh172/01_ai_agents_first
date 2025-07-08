@@ -1,0 +1,74 @@
+           "Anthropic Design Patterns"
+
+1.🔗 Prompt Chaining (Chain Workflow):-
+
+"Prompt Chaining ka matlab hai ke ek bara complex kaam ko choti-choti stages mein divide karna,
+jahan har stage ka output agle stage ka input banta hai."
+
+Socho ek masla solve karna hai, toh pehle maslay ko samjho → phir research karo → phir solution likho.
+Har step pehle wale step ke output pe depend karta hai. Ye ek "chain" ban jati hai.
+
+Agents SDK mein kaise implement hota hai?
+
+OpenAI Agents SDK mein aap har agent ko ek specific task assign kar sakte ho, jaise:
+
+... Agent A: Problem ko understand kare.
+... Agent B: Research gather kare.
+... Agent C: Final response generate kare.
+
+Yeh sab agents ek defined order mein kaam karte hain. 
+
+2.🔁 Routing:-
+
+"Routing ka matlab hota hai ke task ko us agent ke paas bhejna jo uss kaam mein expert ho."
+
+Jaise ek call center mein alag-alag departments hote hain: billing, tech support, sales.
+Customer ka issue jis se related ho, us department ko route kar diya jata hai.
+
+Agents SDK mein kaise kaam karta hai?
+
+OpenAI Agents SDK mein handoff mechanism hota hai, jo allow karta hai ek agent ko dusre agent ko control dena.
+Agar Agent A ko lagta hai ke Agent B is task mein zyada behtar hai, toh wo handoff kar deta hai.
+
+3.⚙️ Parallelization:-
+
+"Parallelization ka matlab hai ke multiple kaam ek sath chalana, taake speed aur efficiency barh jaye."
+
+Socho tumhe aik document summarize bhi karna hai, translate bhi aur keywords bhi nikalne hain. 
+Agar ye sab ek ek kar ke karein, toh time lagega. Agar ye teen tasks ek hi waqt mein different agents karein, toh kaam jaldi ho jata hai.
+
+Agents SDK mein kaise hota hai?
+
+Agents SDK mein aap multiple agents concurrently launch kar sakte ho. Har agent apna subtask independently perform karta hai,
+aur phir orchestrator agent sab results ko collect karta hai.
+
+
+4. 🧠 Orchestrator-Workers:-
+
+"Is pattern mein ek Orchestrator agent hota hai jo complex task ko chote subtasks mein todta hai,
+aur phir ye subtasks worker agents ko assign karta hai."
+
+Socho tum ek team lead ho, aur tum apni team ke members ko kaam distribute karte ho.
+Tum har kisi ka kaam dekhte ho aur final output ko combine karte ho. Yehi kaam orchestrator karta hai.
+
+Agents SDK mein kaise implement hota hai?
+
+OpenAI Agents SDK allow karta hai ke aap ek agent banayein jo:
+
+... Kaam ko analyze kare.
+... Subtasks design kare.
+... Workers ko assign kare.
+... Aur phir results ko assemble karke final output generate kare.
+
+5. 📈 Evaluator-Optimizer:-
+
+"Yeh ek feedback loop hai jahan ek agent (evaluator) doosre agents ke kaam ko assess karta hai, 
+aur unhein improve karne ke liye suggestions deta hai."
+
+Jaise ek teacher students ke assignments check karta hai aur feedback deta hai ke kya behtar ho sakta hai.
+
+Agents SDK mein kaise hota hai?
+
+... Agents SDK mein guardrails aur custom evaluation loops banaye ja sakte hain. Evaluator agent kaam ko review karta hai:
+... Agar kaam sahi hai → final result.
+...Agar kaam weak hai → optimizer agent ko keh deta hai ke improve karo.

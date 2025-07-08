@@ -1,0 +1,31 @@
+
+content = """
+SYNC vs ASYNC - Easy Explanation
+
+SYNC (Synchronous):
+- Kaam ek ke baad ek hota hai.
+- Har step dusre step ka intezaar karta hai.
+- Example: Tum pehle chai banate ho, phir uske baad anda fry karte ho.
+
+ASYNC (Asynchronous):
+- Kaam ek sath chal sakta hai.
+- Ek kaam jab wait kar raha hota hai (e.g. chai ban rahi hai), tum dusra kaam start kar sakte ho (e.g. anda fry).
+- Program rukta nahi, dusra kaam karta rehta hai.
+
+Python Example:
+
+SYNC:
+    print("Start task 1")
+    time.sleep(3)  # Wait 3 seconds
+    print("Task 1 done")
+
+ASYNC:
+    async def task():
+        await asyncio.sleep(3)
+        print("Task done")
+
+Summary:
+- SYNC: "Ruko, kaam complete hone do, phir agla karo."
+- ASYNC: "Kaam chalu rakho, wait karte hue dusra kaam karo."
+"""
+
