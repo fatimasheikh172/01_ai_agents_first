@@ -1,12 +1,22 @@
 import os
 from dotenv import load_dotenv
-from agents import Agent, Runner, AsyncOpenAI, OpenAIChatCompletionsModel
+from agents import Agent, Runner, AsyncOpenAI, OpenAIChatCompletionsModel ,input_guardrail, GuardrailFunctionOutput , InputGuardrailTripwireTriggered
 from agents.run import RunConfig
 import asyncio
+from pydantic import BaseModel
 
 
 
 load_dotenv()
+
+class MathHomeWorkOutput(BaseModel):
+    is_math_work:bool
+    reasoning:str
+
+class EnglishHomeWorkOutput(BaseModel):
+    is_math_work:bool
+    reasoning:str
+
 
 gemini_api_key = os.getenv("GEMINI_API_KEY")
 
@@ -31,6 +41,25 @@ config = RunConfig(
     model_provider=external_client,
     tracing_disabled=True
 )
+
+
+inputGuardrialAgent = Agent(
+    name= "input guardrial agent",
+    instructions="you have to check user quires is related to math or not",
+    output_type=MathHomeWorkOutput,
+    model=model
+
+)
+
+@input_guardrail
+async def math_guardrial(ctx , agent , input):
+    print("prompt: " + " " + input)
+    result = await Runner.run(inputGuardrialAgent , input)
+
+    return GuardrailFunctionOutput(
+        output_info=result.final_output,
+        tripwire_triggered=result.final_output.is_Math_work
+    )
 
 
 async def main():

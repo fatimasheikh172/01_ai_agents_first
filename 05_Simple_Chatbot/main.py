@@ -1,12 +1,14 @@
 import os
-import asyncio
 from dotenv import load_dotenv
 from agents import AsyncOpenAI, OpenAIChatCompletionsModel, Agent, Runner, set_tracing_disabled
 import chainlit as cl
 
+
 # Load environment variables
 load_dotenv()
 set_tracing_disabled(True)
+
+
 
 # Chat start event
 @cl.on_chat_start
@@ -29,6 +31,8 @@ async def start():
         openai_client=external_client,
     )
     
+
+
     
     # Agent setup
     assistant = Agent(
