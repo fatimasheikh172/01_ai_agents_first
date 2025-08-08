@@ -36,7 +36,7 @@ async def start():
     
     # Agent setup
     assistant = Agent(
-        name="Pakistan Assistant 🇵🇰",
+        name="Study Planner Assistant 🇵🇰",
         instructions="""You are a helpful assistant about  Study Schedule Planner. 
         if the user ask about anything not related about  Study Schedule Planner
         "I'm sorry😔, I can only help with topics related to  Study Schedule Planner."
