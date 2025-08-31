@@ -1,6 +1,6 @@
 import os
 from dotenv import load_dotenv  
-from agents import AsyncOpenAI , OpenAIChatCompletionsModel  , RunConfig 
+from agents import AsyncOpenAI , OpenAIChatCompletionsModel  , RunConfig , function_tool , Agent , Runner
 
 load_dotenv()  # Load environment variables from .env file
 
@@ -23,6 +23,5 @@ config = RunConfig(
   model_provider=external_client,
   tracing_disabled=True
 )
-
 
 
